@@ -112,40 +112,6 @@ void BST::levelByLevel(node* root, int level) {
         levelByLevel(root->right, level - 1);
     }
 }
-void BST::visit(BST* arbolito){
-    int op=0;
-    cout<<"Introduce un numero entero del 1 al 4 para decir como quieres que muestre el BST"<<endl;
-    cout<<"1. preOrder"<<endl;
-    cout<<"2. inOrder"<<endl;
-    cout<<"3. postOrder"<<endl;
-    cout<<"4. Level by level"<<endl;
-    cin>>op;
-    if(op==1){
-        cout<<"Opcion seleccionada (1. preOrder)"<<endl;
-        arbolito->preOrder
-(arbolito->raiz);
-        cout<<endl;
-    
-    }else if(op==2){
-        cout<<"Opcion seleccionada (2. inOrder)"<<endl;
-        arbolito->inOrder(arbolito->raiz);
-        cout<<endl;
-    
-    }else if(op==3){
-        cout<<"Opcion seleccionada (3. postOrder)"<<endl;
-        arbolito->postOrder(arbolito->raiz);
-        cout<<endl;
-    }else if(op==4){
-        cout<<"Opcion seleccionada (4. Level by level)"<<endl;
-        for (int i = 1; i < arbolito->height(arbolito->raiz); i++) {
-            cout << "Nivel " << i << ": ";
-            arbolito->levelByLevel(arbolito->raiz, i);
-            cout << endl;
-        }
-    }else{
-        cout<<"Esa no es una opcion disponible"<<endl;
-    }
-}
 
 int BST::height(node* root) {
     if (root == nullptr) {
@@ -153,11 +119,7 @@ int BST::height(node* root) {
     } else {
         int leftHeight = height(root->left);
         int rightHeight = height(root->right);
-        if(leftHeight>=rightHeight){
-            altura=leftHeight+1;
-        }else{
-            altura=rightHeight+1;
-        }
+        altura = max(leftHeight, rightHeight)+1;
         return altura;
     }
 }
@@ -268,7 +230,7 @@ int main(){
             cout << "Nivel: "<<BST.whatLevelIAm(num)<<endl;
         break;
         case 7:
-            cout << "Altura:" << BST.altura <<endl;
+            cout << "Altura:" << BST.altura-1 <<endl;
         break;
         case 8:
             int value;
