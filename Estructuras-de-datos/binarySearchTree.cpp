@@ -1,6 +1,6 @@
 #include <iostream>
-
 using namespace std;
+
 struct node{
     public:
         int data;
@@ -103,7 +103,6 @@ void BST::levelByLevel(node* root, int level) {
     if (root == nullptr) {
         return;
     }
-
     if (level == 1) {
         cout << root->data << " ";
     }
@@ -123,6 +122,7 @@ int BST::height(node* root) {
         return altura;
     }
 }
+
 int BST::whatLevelIAm(int num){
     int cont=0;
     node* nodo=new node;
@@ -144,6 +144,7 @@ int BST::whatLevelIAm(int num){
         }
     }
 }
+
 int BST::ancestors(int num){
     node* nodo=new node;
     nodo->data=num;
@@ -166,8 +167,8 @@ int BST::ancestors(int num){
             return -1;
         }
     }
-
 }
+
 int main(){
     int eleccion;
     BST BST;

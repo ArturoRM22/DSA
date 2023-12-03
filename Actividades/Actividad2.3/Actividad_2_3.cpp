@@ -189,7 +189,7 @@ void storeInTxt(const string& line, ofstream& archivo) {
 
 // Función principal para leer, almacenar, ordenar y buscar direcciones IP
 void leerAlmacenarOrdenar(const string& l, const string& r) {
-    ifstream bitacora = openFileForReading("bitacora.txt");
+    ifstream bitacora = openFileForReading("../bitacora.txt");
     unordered_map<long long int, string> infoMap;
     string line;
     vector<long long int> Ip_Desordenadas;
@@ -224,7 +224,7 @@ void leerAlmacenarOrdenar(const string& l, const string& r) {
     Node* inicio_busqueda = binarySearch(lista.tail, lista.head, ipInicio);
     Node* final_busqueda = binarySearch(lista.tail, lista.head, ipFinal);
 
-    ofstream archivo = openFileForWriting("rango.txt");
+    ofstream archivo = openFileForWriting("../../Actividad3.4/rango.txt");
 
     if (inicio_busqueda != nullptr && final_busqueda != nullptr) {
         Node* current_node = inicio_busqueda;
